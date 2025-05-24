@@ -1,6 +1,23 @@
 # Epty Real Estates
-A brief description of your project and its purpose.
+![Logo](frontend/src/assets/Logo/Logo.png)
 
+*Revolutionizing property discovery with AI-driven recommendations*
+
+## Table of Contents
+
+- [Project structure](#projectStructure)
+- [Features](#features)
+- [TechStack](#techstack)
+- [Prerequisites](#Prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Setup Environment](#setUpEnvironment)
+- [API Documentation](#apidocumentation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Project Structure
 ```
 epty/
 ├── .github/                   # GitHub workflows
@@ -104,38 +121,117 @@ epty/
 └── README.md
 
 ```
-## Table of Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## Features
+- **AI Property Matching**: ML-powered recommendations based on user preferences
+- **Norway Property Data**: Real-time sync with Matrikkelen API
+- **Silent Bidding**: Off-market property negotiation system
+- **BankID Integration**: Secure Norwegian e-ID authentication
+
+## TechStack
+```
+| Component               | Technology                          |
+|-------------------------|-------------------------------------|
+| Frontend                | React + Tailwind CSS                |
+| Backend                 | FastAPI (Python)                    |
+| Database                | MongoDB                             |
+| Cache                   | Redis                               |
+| Authentication          | BankID OIDC                         |
+| Containerization        | Docker + Compose                    |
+
+```
+##  Prerequisites
+- Docker Desktop ([Install](https://www.docker.com/products/docker-desktop))
+- Node.js v18+ ([Install](https://nodejs.org/))
+- Python 3.10+ ([Install](https://www.python.org/downloads/))
+
 
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/Epty.git
-cd Epty
-# Add further installation steps here
+git clone https://github.com/yourusername/Epty-Demo.git
+cd Epty-Demo
+cd frontend/
+npm install
+
 ```
 
 ## Usage
 
-Describe how to run or use the project.
-
 ```bash
-# Example command to start the project
-python main.py
+#Frontend 
+cd frontend/
+npm run dev
+access frontend @localhost 5173 port 
+#Backend
+cd backend
+python -m venv venv
+source venv/Scripts/activate  
+
+pip install -r requirements.txt
+uvicorn app.main:app --reload
 ```
 
-## Features
+### Set Up Environment
+```bash
+# Create environment files
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env
 
-- Feature 1
-- Feature 2
-- Feature 3
+# Edit with your credentials
+nano backend/.env
+```
 
+### Build & Run with Docker
+```bash
+docker-compose up -d --build
+```
+
+### Access Applications
+| Service      | URL                          |
+|--------------|------------------------------|
+| Frontend     | http://localhost:3000        |
+| Backend API  | http://localhost:8000        |
+| MongoDB      | mongodb://localhost:27017    |
+| Redis        | redis://localhost:6379       |
+
+## API Documentation
+After starting the backend:
+- Swagger UI: http://localhost:8000/docs
+- Redoc: http://localhost:8000/redoc
+
+
+##  Development Setup
+
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### Backend
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+source venv\Scripts\activate   # Windows
+
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+## 🐳 Docker Services
+| Service       | Description                     | Image            |
+|---------------|---------------------------------|------------------|
+| epty-frontend | React application               | node:18-alpine   |
+| epty-backend  | FastAPI server                  | python:3.10-slim |
+| epty-mongodb  | Primary database                | mongo:6          |
+| epty-redis    | Caching layer                   | redis:7          |
+
+```
+
+```
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
@@ -150,5 +246,5 @@ Your Name - your.email@example.com
 Project Link: [https://github.com/yourusername/Epty](https://github.com/yourusername/Epty)
 
 
-
-
+* Developed with ❤️ for the Norwegian property market*  
+   
