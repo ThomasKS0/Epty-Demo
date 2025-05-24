@@ -1,0 +1,29 @@
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Remove blue highlight on mobile */
+button,
+input,
+textarea,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.logo {
+  width: 160px;
+  height: 50px;
+}
+
+.logo-text {
+  font-family: Gilroy, sans-serif;
+  font-weight:bold;
+  font-size:32px;
+}

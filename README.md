@@ -1,70 +1,154 @@
-# Getting Started with Create React App
+# Epty Real Estates
+A brief description of your project and its purpose.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```
+epty/
+├── .github/                   # GitHub workflows
+│   ├── workflows/
+│   │   ├── ci.yml             # CI pipeline
+│   │   └── cd.yml             # Deployment
+├── backend/                   # FastAPI
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── main.py            # FastAPI app entrypoint
+│   │   ├── api/               # All API routes
+│   │   │   ├── v1/            # Versioned APIs
+│   │   │   │   ├── properties.py
+│   │   │   │   ├── users.py
+│   │   │   │   └── ai/
+│   │   │   │       └── recommendations.py
+│   │   ├── core/              # Core application logic
+│   │   │   ├── config.py      # App settings
+│   │   │   ├── security.py    # Auth utils
+│   │   │   └── errors.py      # Custom exceptions
+│   │   ├── models/            # DB models
+│   │   │   ├── property.py
+│   │   │   └── user.py
+│   │   ├── schemas/           # Pydantic models
+│   │   │   ├── property.py
+│   │   │   └── user.py
+│   │   ├── services/          # External service integrations
+│   │   │   ├── matrikkelen.py
+│   │   │   └── bankid.py
+│   │   ├── db/                # Database layer
+│   │   │   ├── session.py     # MongoDB connection
+│   │   │   └── repositories/  # DB operations
+│   │   │       ├── property_repo.py
+│   │   │       └── user_repo.py
+│   │   └── utils/             # Helpers
+│   │       ├── geocoding.py
+│   │       └── cache.py
+│   ├── tests/
+│   │   ├── unit/
+│   │   ├── integration/
+│   │   └── conftest.py
+│   ├── requirements/
+│   │   ├── base.txt
+│   │   ├── dev.txt
+│   │   └── prod.txt
+│   ├── Dockerfile
+│   └── alembic/               # DB migrations
+│       ├── versions/
+│       └── env.py
+├── frontend/                  # React + Tailwind
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/        # Reusable UI
+│   │   │   ├── property/
+│   │   │   │   ├── PropertyCard.jsx
+│   │   │   │   └── MapView.jsx
+│   │   │   ├── search/
+│   │   │   │   ├── Filters.jsx
+│   │   │   │   └── AIWizard.jsx
+│   │   │   └── ui/            # Base components
+│   │   │       ├── Button.jsx
+│   │   │       └── Dialog.jsx
+│   │   ├── contexts/          # React contexts
+│   │   ├── hooks/             # Custom hooks
+│   │   │   ├── useProperties.js
+│   │   │   └── useBankIDAuth.js
+│   │   ├── pages/             # Next.js-style routing
+│   │   │   ├── Search.jsx
+│   │   │   ├── Property/
+│   │   │   │   ├── [id].jsx   # Dynamic route
+│   │   │   │   └── index.jsx
+│   │   │   └── Dashboard.jsx
+│   │   ├── services/          # API clients
+│   │   │   ├── api.js         # Axios instance
+│   │   │   └── propertyService.js
+│   │   ├── styles/
+│   │   │   ├── globals.css    # Tailwind imports
+│   │   │   └── theme.js       # Design tokens
+│   │   ├── utils/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── .storybook/            # Component stories
+│   ├── tests/
+│   │   ├── unit/
+│   │   └── e2e/               # Cypress tests
+│   ├── Dockerfile
+│   ├── postcss.config.js
+│   └── tailwind.config.js
+├── database/                  # MongoDB configs
+│   ├── init-mongo.js          # Initial setup scripts
+│   └── mongo.conf             # Custom config
+├── infrastructure/
+│   ├── terraform/             # IaC
+│   └── nginx/
+│       └── nginx.conf         # Reverse proxy config
+├── scripts/                   # Utility scripts
+├── .env.example               # Environment template
+├── docker-compose.yml
+├── Makefile                   # Common commands
+└── README.md
 
-## Available Scripts
+```
+## Table of Contents
 
-In the project directory, you can run:
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+git clone https://github.com/yourusername/Epty.git
+cd Epty
+# Add further installation steps here
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `npm test`
+Describe how to run or use the project.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+# Example command to start the project
+python main.py
+```
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Feature 1
+- Feature 2
+- Feature 3
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Contributing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Contributions are welcome! Please open an issue or submit a pull request.
 
-### `npm run eject`
+## License
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This project is licensed under the [MIT License](LICENSE).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contact
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Your Name - your.email@example.com  
+Project Link: [https://github.com/yourusername/Epty](https://github.com/yourusername/Epty)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
